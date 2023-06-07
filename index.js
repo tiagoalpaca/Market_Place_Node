@@ -16,6 +16,10 @@ const mongoose = require('mongoose');
 const connectToDatabase = require("./src/database/database");
 connectToDatabase();
 
+// importar as rotas
+const usuario= require("./src/router/usuario.router");
+app.use("/usuario",usuario);
+
 app.get("/",(req,res)=> {
     res.send({
         message:"Bem vindo ao Market Place"

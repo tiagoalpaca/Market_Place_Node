@@ -2,6 +2,7 @@
 // const router = require("express").Router(); 
 const express = require("express");
 const router = express.Router();
+// importa o controler do usuario
 const UsuarioController = require("../controller/usuario.controller");
 
 // vamos importar o controller, O . ponto serve para algo no seu mesmo nivel, . . vc volta 2 nivel na questão de pastas da arquitetura, como esta dentro da pasta controller precisamos de ..
@@ -10,18 +11,18 @@ const usuario = require("../controller/usuario.controller");
 // findAll é o outro campo para algo que vai disparado quando o get for chamado, normalmente uma função.
 // apos importar do controller temos as funções que passamos no router
 
-router.get("/find/:id", usuario.find); 
-router.get("/findAll", usuario.findAllUsuarios);
+router.get("/find/:id", usuario.findUserByIdController); 
+router.get("/findAll", usuario.findAllUsersController);
 
-router.post("/create", usuario.createUsuario);
-router.post("/addAddress/:id", );
-router.post("/addFavProduct/:id", );
+router.post("/create", usuario.createUserController);
+router.post("/addAddress/:id", usuario.addUserAdressController);
+router.post("/addFavProduct/:id", usuario.addUserFavProduct );
 
-router.put("/update/:id", usuario.updateUsuario);
+router.put("/update/:id", usuario.updateUserController);
 
-router.delete("/remove/:id", usuario.deleteUsuario);
-router.delete("/removeAddress", usuario.deleteUsuario);
-router.delete("/removeFavProduct", usuario.deleteUsuario);
+router.delete("/remove/:id", usuario.removeUserController);
+router.delete("/removeAddress", usuario.removeUserAdressController);
+router.delete("/removeFavProduct", usuario.removeUserFavProduct);
 
 // para exportar os routers
 module.exports = router;
