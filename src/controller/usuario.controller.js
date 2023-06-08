@@ -48,7 +48,7 @@ const createUserController = async (req,res) => {
         if(!body.nome){
             return res.status(400).send({message:"O campo 'nome' nao foi encontrado"});
         }
-        return res.status(201).send(await userService.createUsuarioService(body));
+        return res.status(201).send(await userService.createUserService(body));
 
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
@@ -92,7 +92,7 @@ const updateUserController  = async (req,res) =>{
         if(!body.nome){
             return res.status(400).send({message:"O campo 'nome' nao foi encontrado"});
         }
-        return res.status(201).send(await userService.updateuserService(req.params.id,body));
+        return res.status(201).send(await userService.updateUserService(req.params.id,body));
 
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
@@ -136,11 +136,14 @@ const removeUserController = async (req,res) =>{
 
         const deletedUser = await userService.removeUserService(req.params.id);
 
-        if(deletedUser.deletedCount > 0){
-            res.status(200).send({message: 'Sucesso,usuario deletado'});
-        }else{
-            res.status(404).send({message: 'Usuario nao encontado,tente novamente!'});
-        }
+        console.log(deletedUser);
+        res.status(200).send({message: 'Sucesso,usuario deletado'});
+
+        // if(deletedUser.deletedCount > 0){
+        //     res.status(200).send({message: 'Sucesso,usuario deletado'});
+        // }else{
+        //     res.status(404).send({message: 'Usuario nao encontado,tente novamente!'});
+        // }
 
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema

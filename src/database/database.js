@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 function connectToDatabase() {
     // o connect precisa da URI e as segunda parte sao opcoes
     // mongoose.connect('mongodb://localhost:27017/aulas', { , tive que substituir o localhost por 127.0.0.1 pois estava dando erro
-    mongoose.connect('mongodb://127.0.0.1:27017/aulas', {
+    mongoose.connect('mongodb://127.0.0.1:27017/AtividadeBraba', {
         // São duas confingurações para questão unificada, para nao ter problemas na conexão
         useNewUrlParser:true,
         useUnifiedTopology: true,

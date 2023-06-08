@@ -15,16 +15,16 @@ const UsuarioSchema = new mongoose.Schema({
             complemento:{ type:String, required:false},
             Cep:{ type:String, required:true},
             // quando foi criado o endereço
-            createdAt:{ type:Date, required:true},
+            createdAt:{ type:Date, required:true,default: Date.now()},
         }
     ],
     // log bom para registrar o usuario, ter informacoes, quanto mais completo melhor
-    createdAt:{},
+    createdAt:{type:Date, required:true,default: Date.now()},
     // produtos favoritos
     produtos_fav:[
     {
         _id:{ type: mongoose.Schema.Types.ObjectId, required: true, unique: true, ref: "produtos"},
-        createdAt:{ type:Date, required:true},
+        createdAt:{ type:Date, required:true,default: Date.now()},
     }
     ],
     // se o usuario é admnistrador ou nao,por padrao(default) vai ser false

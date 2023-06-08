@@ -12,7 +12,7 @@ const usuario = require("../controller/usuario.controller");
 // apos importar do controller temos as funções que passamos no router
 
 // Get
-router.get("/find/:id", usuario.findUserByIdController); 
+router.get("/findById/:id", usuario.findUserByIdController); 
 router.get("/findAll", usuario.findAllUsersController);
 
 // Post
