@@ -13,10 +13,10 @@ app.use(express.json());
 
 const mongoose = require('mongoose');
 // importar a função para conecter database
-const connectToDatabase = require("./src/database/database");
+ const connectToDatabase = require("./src/database/database"); 
 connectToDatabase();
 
-// importar as rotas
+// importar as rotas do usuario e as chamando
 const usuario= require("./src/router/usuario.router");
 app.use("/usuario",usuario);
 

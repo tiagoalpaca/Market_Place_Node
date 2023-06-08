@@ -11,15 +11,19 @@ const usuario = require("../controller/usuario.controller");
 // findAll é o outro campo para algo que vai disparado quando o get for chamado, normalmente uma função.
 // apos importar do controller temos as funções que passamos no router
 
+// Get
 router.get("/find/:id", usuario.findUserByIdController); 
 router.get("/findAll", usuario.findAllUsersController);
 
+// Post
 router.post("/create", usuario.createUserController);
 router.post("/addAddress/:id", usuario.addUserAdressController);
 router.post("/addFavProduct/:id", usuario.addUserFavProduct );
 
+// Put
 router.put("/update/:id", usuario.updateUserController);
 
+// Delete
 router.delete("/remove/:id", usuario.removeUserController);
 router.delete("/removeAddress", usuario.removeUserAdressController);
 router.delete("/removeFavProduct", usuario.removeUserFavProduct);
