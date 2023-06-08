@@ -148,33 +148,43 @@ const removeUserController = async (req,res) =>{
         console.log('erro: '+err);
         return res.status(500).send("erro no servidor,tenta novamante mais tarde");
     }
-}
+};
 
 const addUserAdressController = async(req,res) =>{
 
     try{
+        req.body.createdAt = new Date();
+        const endereco = await userService.addUserAddressService(req.params.id,req.body);
+
+        if(endereco.ok ==1){
+            res.status(201).send({message: 'Endereco adicionado com sucesso'})
+        }else{
+            res.status(404).send({message: 'Algo deu errado no endereço,tente novamante!'});
+        }
         
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
     console.log('erro: '+err);
     return res.status(500).send("erro no servidor,tenta novamante mais tarde");
     }
-
-
-}
+};
 
 const removeUserAdressController = async(req,res) =>{
 
     try{
-        
+        const endereco = await userService.removeUserAddressService(req.body.id, req.body.addressId);
+
+        if(endereco.ok == 1){
+            res.status(200).send({message: 'Endereco removido com sucesso'})
+        }else{
+            res.status(404).send({message: 'Algo deu errado no endereço,endereco nao foi removido,tente novamante!'});
+        }
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
     console.log('erro: '+err);
     return res.status(500).send("erro no servidor,tenta novamante mais tarde");
     }
-
-    
-}
+};
 
 const addUserFavProductController = async(req,res) =>{
 

@@ -21,12 +21,36 @@ const removeUserService = (id) => {
     return Usuario.findByIdAndRemove(id);
 }
 
-const addUserAddressService = (id,usuario) => {
-    
+const addUserAddressService = (id,endereco) => {
+    return Usuario.findOneAndUpdate({
+        _id: id,
+
+    },
+    {
+        $push:{
+            enderecos:endereco,
+        }
+    },
+    {
+        rawResult:true,
+    }
+    );
 }
 
-const removeUserAddressService = (id) => {
-    
+const removeUserAddressService = (id,adressId) => {
+    return Usuario.findOneAndUpdate({
+        _id: id,
+
+    },
+    {
+        $pull:{
+            _id: addressId,
+        }
+    },
+    {
+        rawResult:true,
+    }
+    );
 }
 const addUserFavProductService = (id,usuario) => {
     
