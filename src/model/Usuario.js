@@ -21,12 +21,12 @@ const UsuarioSchema = new mongoose.Schema({
     // log bom para registrar o usuario, ter informacoes, quanto mais completo melhor
     createdAt:{type:Date, required:true,default: Date.now()},
     // produtos favoritos
-    produtos_fav:[
-    {
-        _id:{ type: mongoose.Schema.Types.ObjectId, required: true, unique: true, ref: "produtos"},
-        createdAt:{ type:Date, required:true,default: Date.now()},
-    }
-    ],
+    // produtos_fav:[
+    // {
+    //     _id:{ type: mongoose.Schema.Types.ObjectId, required: true, unique: true, ref: "produtos"},
+    //     createdAt:{ type:Date, required:true,default: Date.now()},
+    // }
+    // ],
     // se o usuario é admnistrador ou nao,por padrao(default) vai ser false
     admin:{type:String, required:true,default: false},
 });

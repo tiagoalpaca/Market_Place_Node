@@ -133,24 +133,21 @@ const updateUserController  = async (req,res) =>{
 const removeUserController = async (req,res) =>{
 
     try{
-
         const deletedUser = await userService.removeUserService(req.params.id);
 
         console.log(deletedUser);
-        res.status(200).send({message: 'Sucesso,usuario deletado'});
 
-        // if(deletedUser.deletedCount > 0){
-        //     res.status(200).send({message: 'Sucesso,usuario deletado'});
-        // }else{
-        //     res.status(404).send({message: 'Usuario nao encontado,tente novamente!'});
-        // }
+         if(deletedUser == null){
+            res.status(404).send({message: 'Usuario nao encontado,tente novamente!'});
+         }else{
+             res.status(200).send({message: 'Sucesso,usuario deletado'});
+        }
 
     }catch(err){
-    // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
-    console.log('erro: '+err);
-    return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
     }
-
 }
 
 const addUserAdressController = async(req,res) =>{
