@@ -18,7 +18,7 @@ router.get("/findAll", usuario.findAllUsersController);
 // Post
 router.post("/create", usuario.createUserController);
 router.post("/addAddress/:id", usuario.addUserAdressController);
-router.post("/addFavProduct/:id", usuario.addUserFavProduct );
+router.post("/addFavProduct/:id", usuario.addUserFavProductController);
 
 // Put
 router.put("/update/:id", usuario.updateUserController);
@@ -26,7 +26,7 @@ router.put("/update/:id", usuario.updateUserController);
 // Delete
 router.delete("/remove/:id", usuario.removeUserController);
 router.delete("/removeAddress", usuario.removeUserAdressController);
-router.delete("/removeFavProduct", usuario.removeUserFavProduct);
+router.delete("/removeFavProduct", usuario.removeUserFavProductController);
 
 // para exportar os routers
 module.exports = router;
