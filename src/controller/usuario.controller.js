@@ -156,10 +156,11 @@ const addUserAdressController = async(req,res) =>{
         req.body.createdAt = new Date();
         const endereco = await userService.addUserAddressService(req.params.id,req.body);
 
-        if(endereco.ok ==1){
-            res.status(201).send({message: 'Endereco adicionado com sucesso'})
-        }else{
+        console.log(endereco);
+        if(endereco.value ==null){
             res.status(404).send({message: 'Algo deu errado no endereço,tente novamante!'});
+        }else{
+            res.status(201).send({message: 'Endereco adicionado com sucesso'})
         }
         
     }catch(err){
