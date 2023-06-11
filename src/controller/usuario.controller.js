@@ -100,8 +100,6 @@ const updateUserController  = async (req,res) =>{
     return res.status(500).send("erro no servidor,tenta novamante mais tarde");
     }
 
-    
-
      if(Object.keys(usuario).lenght === 0){
         return res.status(400).send({message: "o corpo da mensagem esta vazio"});
     }
@@ -195,26 +193,26 @@ const removeUserAdressController = async(req,res) =>{
 
 const addUserFavProductController = async(req,res) =>{
 
-    try{
+    // try{
         
-    }catch(err){
-    // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
-    console.log('erro: '+err);
-    return res.status(500).send("erro no servidor,tenta novamante mais tarde");
-    }
+    // }catch(err){
+    // // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+    // console.log('erro: '+err);
+    // return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    // }
 
     
 }
 
 const removeUserFavProductController  = async(req,res) =>{
 
-    try{
+    // try{
         
-    }catch(err){
-    // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
-    console.log('erro: '+err);
-    return res.status(500).send("erro no servidor,tenta novamante mais tarde");
-    }
+    // }catch(err){
+    // // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+    // console.log('erro: '+err);
+    // return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    // }
 
     
 }
