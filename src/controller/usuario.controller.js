@@ -173,8 +173,14 @@ const removeUserAdressController = async(req,res) =>{
 
     try{
         const endereco = await userService.removeUserAddressService(req.body.id, req.body.addressId);
+        let found = false;
 
-        if(endereco.ok == 1){
+        endereco.value.enderecos.map((valor, chave) =>{
+            if(valor._id == req.body.addressId){
+                found = true;
+            }
+        })
+        if(found){
             res.status(200).send({message: 'Endereco removido com sucesso'})
         }else{
             res.status(404).send({message: 'Algo deu errado no endereço,endereco nao foi removido,tente novamante!'});
