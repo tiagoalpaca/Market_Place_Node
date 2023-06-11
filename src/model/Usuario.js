@@ -43,6 +43,13 @@ UsuarioSchema.pre("save",async function(next){
     next();
 });
 
+UsuarioSchema.pre("findOneAndUpdate",async function(next){
+    if(this._update.senha){
+        // vamos embaralhar a senha 10x e devolver uma hash
+        this._update.senha = await bcrypt.hash(this._update.senha,10);
+    }
+    next();
+});
 const Usuario = mongoose.model("usuarios",UsuarioSchema);
 
 module.exports= Usuario;

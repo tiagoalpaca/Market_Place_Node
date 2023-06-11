@@ -42,7 +42,6 @@ const findAllUsersController = async (req,res)=>{
 
 // cria a função de criar um usuario
 const createUserController = async (req,res) => {
-    const usuario = req.body;
     try{
         const body = req.body;
         if(!body.nome){
@@ -85,8 +84,6 @@ const createUserController = async (req,res) => {
 
 // função para fazer o update
 const updateUserController  = async (req,res) =>{
-     
-    const usuario = req.body;
     try{
         const body = req.body;
         if(!body.nome){
@@ -129,7 +126,6 @@ const updateUserController  = async (req,res) =>{
 
 // função para fazer o delete
 const removeUserController = async (req,res) =>{
-
     try{
         const deletedUser = await userService.removeUserService(req.params.id);
 
