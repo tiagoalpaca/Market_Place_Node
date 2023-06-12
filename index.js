@@ -22,10 +22,13 @@ connectToDatabase();
 const usuario= require("./src/router/usuario.router");
 // Importa as rotas auth
 const auth = require("./src/router/auth.router");
+// Importa as rotas do produto
+const produto = require("./src/router/produto.router");
 
-// Chamando as rotas do usuario e de auth
+// Chamando as rotas do usuario,auth e produto
 app.use("/usuario", usuario);
 app.use("/auth", auth);
+app.use("/produto", produto);
 
 app.get("/",(req,res)=> {
     res.send({

@@ -1,0 +1,68 @@
+const produtoService = require("../service/produto.service");
+const mongoose = require("mongoose");
+
+const findProductByIdController = async (req,res)=>{
+    try{
+
+        return res.status(200).send(await produtoService.findProductByIdService(req.params.id));
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
+const findAllProductsController = async (req,res)=>{
+    try{
+
+        return res.status(200).send(await produtoService.findAllProductsService());
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
+const createProductController = async (req,res) => {
+    try{
+        const corpo = {
+            ...req.body,
+            userId: req.userId,
+            createdAt: new Date(),
+        }
+        return res.status(200).send(await produtoService.createProductService(corpo));
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
+const updateProductController  = async (req,res) =>{
+    try{
+
+        return res.status(200).send(await produtoService.updateProductService(req.params.id,req.body));
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
+const removeProductController = async (req,res) =>{
+    try{
+        return res.status(200).send(await produtoService.removeProductService(req.params.id));
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
+module.exports ={
+   findProductByIdController,
+   findAllProductsController,
+   createProductController,
+   updateProductController,
+   removeProductController
+}

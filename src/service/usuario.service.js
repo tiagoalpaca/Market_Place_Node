@@ -1,6 +1,6 @@
 const Usuario = require("../model/Usuario");
 
-// Dentro do service não precisa do asyn await, no controller sin
+// Dentro do service não precisa do asyn await, no controller sim
 const findUserbyIdService = (id) =>{
     return Usuario.findById(id);
 }
