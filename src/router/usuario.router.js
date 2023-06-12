@@ -5,6 +5,9 @@ const router = express.Router();
 // importa o controler do usuario
 const UsuarioController = require("../controller/usuario.controller");
 
+// importar o middleware para fazer as verificações
+const authMiddleware = require ("../middleware/auth.middleware");
+
 // vamos importar o controller, O . ponto serve para algo no seu mesmo nivel, . . vc volta 2 nivel na questão de pastas da arquitetura, como esta dentro da pasta controller precisamos de ..
 const usuario = require("../controller/usuario.controller");
 // o router possui os métodos HTTP,faz o gerenciamento primario do que vai disparado quando o usuario clicar
@@ -12,7 +15,7 @@ const usuario = require("../controller/usuario.controller");
 // apos importar do controller temos as funções que passamos no router
 
 // Get
-router.get("/findById/:id", usuario.findUserByIdController); 
+router.get("/findById/:id",authMiddleware, usuario.findUserByIdController); 
 router.get("/findAll", usuario.findAllUsersController);
 
 // Post
