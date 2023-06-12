@@ -24,11 +24,14 @@ const usuario= require("./src/router/usuario.router");
 const auth = require("./src/router/auth.router");
 // Importa as rotas do produto
 const produto = require("./src/router/produto.router");
+// Importa as rotas da categoria
+const categoria = require("./src/router/categoria.router");
 
 // Chamando as rotas do usuario,auth e produto
 app.use("/usuario", usuario);
 app.use("/auth", auth);
 app.use("/produto", produto);
+app.use("/categoria", categoria);
 
 app.get("/",(req,res)=> {
     res.send({
