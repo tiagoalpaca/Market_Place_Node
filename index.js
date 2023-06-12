@@ -4,6 +4,7 @@
 // express
 const express = require("express");
 const app = express();
+const jwt = require("jsonwebtoken");
 
 // Porta vai ser a 3000
 const port = 3000;
@@ -18,7 +19,12 @@ connectToDatabase();
 
 // importar as rotas do usuario e as chamando
 const usuario= require("./src/router/usuario.router");
-app.use("/usuario",usuario);
+// Importa as rotas auth
+const auth = require("./src/router/auth.router");
+
+// Chamando as rotas do usuario e de auth
+app.use("/usuario", usuario);
+app.use("/auth", auth);
 
 app.get("/",(req,res)=> {
     res.send({
