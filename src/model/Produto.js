@@ -7,12 +7,12 @@ const ProdutoSchema = new mongoose.Schema({
     imagem:{ type: String, required:true},
     codigoBarra:{type: Number, required:true,unique:true},
     // array de informações
-    // categoria:[
-    //     {
-    //         _id:{type: mongoose.Schema.Types.ObjectId,required: true,unique: true,ref:"categorias"},
-    //         createdAt:{ type:Date, required:true,default: Date.now()},
-    //     }
-    // ],
+    categoria:[
+         {
+             _id:{type: mongoose.Schema.Types.ObjectId,required: true,ref:"categorias"},
+             createdAt:{ type:Date, required:true,default: Date.now()},
+         }
+    ],
 });
 
 const Produto = mongoose.model("produtos",ProdutoSchema);

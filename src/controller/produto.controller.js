@@ -59,10 +59,33 @@ const removeProductController = async (req,res) =>{
     }
 };
 
+const addCategoriaProdutoController = async (req,res) =>{
+    try{
+        req.body.createAt = new Date();
+        const categoria = await produtoService.addCategoriaProdutoService(req.params.id, req.body);
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
+const removeCategoriaProdutoController = async (req,res) =>{
+    try{
+        const categoria = await produtoService.removeCategoriaProdutoService(req.body);
+    }catch(err){
+        // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagesm do codigo do erro para pessoas de fora do sistema
+        console.log('erro: '+err);
+        return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+    }
+};
+
 module.exports ={
    findProductByIdController,
    findAllProductsController,
    createProductController,
    updateProductController,
-   removeProductController
+   removeProductController,
+   addCategoriaProdutoController,
+   removeCategoriaProdutoController
 }
