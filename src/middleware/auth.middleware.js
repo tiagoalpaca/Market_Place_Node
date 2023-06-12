@@ -24,7 +24,7 @@ module.exports = async (req, res, next) =>{
 
      // vamos decoficicar o token com base no segredo, com a ajuda do banco(async) vai virar ou erro ou vai decodificar
     //  o codigo(segredo) tem que ser igual ao do auth.service do generateToken
-     jwt.verify(token,"aoadkaodkaofjasofjasofo132414", async (err,decoded) => {
+     jwt.verify(token,process.env.SECRET, async (err,decoded) => {
         if(err){
             console.log('erro:'+err);
             return res.status(500).send({message:'erro interno,tente novamente'});

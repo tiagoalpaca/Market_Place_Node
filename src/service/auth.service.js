@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const loginService = (email) => Usuario.findOne({email:email}).select("senha");
 
 // const generateToken = (userId) => jwt.sign({id:userId},"aoadkaodkaofjasofjasofo132414",{expireIn:8400});
-const generateToken = (userId) => jwt.sign({id:userId},"aoadkaodkaofjasofjasofo132414");
+const generateToken = (userId) => jwt.sign({id:userId},process.env.SECRET);
 module.exports = {
     loginService,
     generateToken

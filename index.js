@@ -5,7 +5,8 @@
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-
+// vai chamar o dotenv antes de qualquer arquivo que precise dele
+require("dotenv").config();
 // Porta vai ser a 3000
 const port = 3000;
 
