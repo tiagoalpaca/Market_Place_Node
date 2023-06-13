@@ -13,7 +13,6 @@ const findCategoriaByIdController = async (req,res)=>{
 
 const findAllCategoriasController = async (req,res)=>{
     try{
-
         return res.status(200).send(await categoriaService.findAllCategoriasService());
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
@@ -24,10 +23,6 @@ const findAllCategoriasController = async (req,res)=>{
 
 const createCategoriaController = async (req,res) => {
     try{
-        const corpo = {
-            ...req.body,
-            createdAt: new Date(),
-        }
         return res.status(201).send(await categoriaService.createCategoriaService(corpo));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema

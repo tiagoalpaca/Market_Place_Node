@@ -7,7 +7,6 @@ const findUserByIdController = async (req,res)=>{
      // toda interação com o BD é bom usar o try,catch para melhorar tudo, para tentar conter danos. Toda interação é bom utilizar.
 
    try{
-
         const user = await userService.findUserbyIdService(req.params.id);
         
         if(!user){
@@ -31,7 +30,6 @@ const findUserByIdController = async (req,res)=>{
 // Uma função para encontrar todos os usuarios, 
 const findAllUsersController = async (req,res)=>{
     try{
-
         return res.status(200).send(await userService.findAllUsersService());
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema

@@ -26,7 +26,6 @@ const createCarrinhoController = async (req,res) => {
         const corpo = {
             ...req.body,
             userId: req.userId,
-            createdAt: new Date(),
         }
         return res.status(201).send(await carrinhoService.createCarrinhoService(corpo));
     }catch(err){

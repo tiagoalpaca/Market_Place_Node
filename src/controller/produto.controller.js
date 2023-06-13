@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 
 const findProductByIdController = async (req,res)=>{
     try{
-
         return res.status(200).send(await produtoService.findProductByIdService(req.params.id));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
@@ -14,7 +13,6 @@ const findProductByIdController = async (req,res)=>{
 
 const findAllProductsController = async (req,res)=>{
     try{
-
         return res.status(200).send(await produtoService.findAllProductsService());
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
@@ -28,7 +26,6 @@ const createProductController = async (req,res) => {
         const corpo = {
             ...req.body,
             userId: req.userId,
-            createdAt: new Date(),
         }
         return res.status(201).send(await produtoService.createProductService(corpo));
     }catch(err){
@@ -40,7 +37,6 @@ const createProductController = async (req,res) => {
 
 const updateProductController  = async (req,res) =>{
     try{
-
         return res.status(200).send(await produtoService.updateProductService(req.params.id,req.body));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
@@ -61,7 +57,6 @@ const removeProductController = async (req,res) =>{
 
 const addCategoriaProdutoController = async (req,res) =>{
     try{
-        req.body.createAt = new Date();
         const categoria = await produtoService.addCategoriaProdutoService(req.params.id, req.body);
         res.status(200).send(categoria);
     }catch(err){
