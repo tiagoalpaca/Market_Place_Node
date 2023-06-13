@@ -14,22 +14,23 @@ const usuario = require("../controller/usuario.controller");
 // findAll é o outro campo para algo que vai disparado quando o get for chamado, normalmente uma função.
 // apos importar do controller temos as funções que passamos no router
 
+// Caso não se insira o middleware, a pessoa não precisa do token para fazer a pesquisa
 // Get
 router.get("/findById/:id",authMiddleware, usuario.findUserByIdController); 
-router.get("/findAll", usuario.findAllUsersController);
+router.get("/findAll",authMiddleware, usuario.findAllUsersController);
 
 // Post
 router.post("/create", usuario.createUserController);
-router.post("/addAddress/:id", usuario.addUserAdressController);
-router.post("/addFavProduct/:id", usuario.addUserFavProductController);
+router.post("/addAddress/:id", authMiddleware,usuario.addUserAdressController);
+router.post("/addFavProduct/:id",authMiddleware, usuario.addUserFavProductController);
 
 // Put
-router.put("/update/:id", usuario.updateUserController);
+router.put("/update/:id", authMiddleware,usuario.updateUserController);
 
 // Delete
-router.delete("/remove/:id", usuario.removeUserController);
-router.delete("/removeAddress", usuario.removeUserAdressController);
-router.delete("/removeFavProduct", usuario.removeUserFavProductController);
+router.delete("/remove/:id", authMiddleware,usuario.removeUserController);
+router.delete("/removeAddress",authMiddleware, usuario.removeUserAdressController);
+router.delete("/removeFavProduct/:id", authMiddleware,usuario.removeUserFavProductController);
 
 // para exportar os routers
 module.exports = router;

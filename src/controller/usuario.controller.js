@@ -187,28 +187,23 @@ const removeUserAdressController = async(req,res) =>{
 
 const addUserFavProductController = async(req,res) =>{
 
-    // try{
-        
-    // }catch(err){
-    // // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
-    // console.log('erro: '+err);
-    // return res.status(500).send("erro no servidor,tenta novamante mais tarde");
-    // }
-
-    
+    try{
+        return res.status(201).send(await userService.addUserFavProductService(req.params.id,req.body));
+    }catch(err){
+ 
+     console.log('erro: '+err);
+     return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+     }    
 }
 
 const removeUserFavProductController  = async(req,res) =>{
-
-    // try{
-        
-    // }catch(err){
-    // // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
-    // console.log('erro: '+err);
-    // return res.status(500).send("erro no servidor,tenta novamante mais tarde");
-    // }
-
-    
+    try{
+        return res.status(201).send(await userService.removeUserFavProductService(req.params.id,req.body));
+    }catch(err){
+ 
+     console.log('erro: '+err);
+     return res.status(500).send("erro no servidor,tenta novamante mais tarde");
+     }   
 }
 
 module.exports ={
