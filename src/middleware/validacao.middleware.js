@@ -1,3 +1,5 @@
+// Precisa validar tudo o que é require no sistema
+
 const validaUsuario = (req,res,next) =>{
     // Nessa função testa um erro por vez e toma uma decisão por vez
     if(!req.body.nome){
@@ -64,8 +66,60 @@ const validaCategoria = (req,res,next) =>{
     return next();
 }
 
+const validaPedido = (req,res,next) =>{
+    // vetor para acumular os erros
+    let erros = [];
+
+    if(!req.body.precoTotal){
+        erros.push("precoTotal");
+    }
+    if(!req.body.frete){
+        erros.push("Frete");
+    }
+    // validação é diferente,pois se trata de um booleano
+    if(req.body.concluido == undefined){
+        erros.push("Concluido");
+    }
+
+    if(erros.length == 0){
+        // precisa ter o return next,senao ele fica flutuando e nao faz nada
+    return next();
+   }else{
+       if(erros.length > 1){
+           return res.status(400).send({message:"Os campos "+ erros +  " precisam ser preenchidos!!"}); 
+       }else{
+           return res.status(400).send({message:"O campo "+ erros +  " precisa ser preenchido!!"}); 
+       }
+    }
+}
+
+const validaCarrinho = (req,res,next) =>{
+      // vetor para acumular os erros
+      let erros = [];
+
+      if(!req.body.precoTotal){
+          erros.push("precoTotal");
+      }
+      if(!req.body.frete){
+          erros.push("Frete");
+      }
+      
+      if(erros.length == 0){
+          // precisa ter o return next,senao ele fica flutuando e nao faz nada
+      return next();
+     }else{
+         if(erros.length > 1){
+             return res.status(400).send({message:"Os campos "+ erros +  " precisam ser preenchidos!!"}); 
+         }else{
+             return res.status(400).send({message:"O campo "+ erros +  " precisa ser preenchido!!"}); 
+         }
+      }
+}
+
 module.exports = {
     validaUsuario,
     validaProduto,
-    validaCategoria
+    validaCategoria,
+    validaPedido,
+    validaCarrinho
 }
