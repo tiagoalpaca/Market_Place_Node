@@ -7,6 +7,8 @@ const UsuarioController = require("../controller/usuario.controller");
 
 // importar o middleware para fazer as verificações
 const authMiddleware = require ("../middleware/auth.middleware");
+// importar o middleware para fazer as validações
+const {validaUsuario} = require ("../middleware/validacao.middleware");
 
 // vamos importar o controller, O . ponto serve para algo no seu mesmo nivel, . . vc volta 2 nivel na questão de pastas da arquitetura, como esta dentro da pasta controller precisamos de ..
 const usuario = require("../controller/usuario.controller");
@@ -16,16 +18,17 @@ const usuario = require("../controller/usuario.controller");
 
 // Caso não se insira o middleware, a pessoa não precisa do token para fazer a pesquisa
 // Get
-router.get("/findById/:id",authMiddleware, usuario.findUserByIdController); 
+router.get("/findById/:id",authMiddleware,usuario.findUserByIdController); 
 router.get("/findAll",authMiddleware, usuario.findAllUsersController);
 
 // Post
-router.post("/create", usuario.createUserController);
+router.post("/create",validaUsuario, usuario.createUserController);
 router.post("/addAddress/:id", authMiddleware,usuario.addUserAdressController);
 router.post("/addFavProduct/:id",authMiddleware, usuario.addUserFavProductController);
 
 // Put
-router.put("/update/:id", authMiddleware,usuario.updateUserController);
+// primeira validamos o token, dps o usuario
+router.put("/update/:id", authMiddleware,validaUsuario,usuario.updateUserController);
 
 // Delete
 router.delete("/remove/:id", authMiddleware,usuario.removeUserController);
