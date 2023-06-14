@@ -47,7 +47,7 @@ const removePedidoController = async (req,res) =>{
 
 const updateStatusPedidoController  = async (req,res) =>{
     try{
-        return res.status(200).send(await PedidoService.updatePedidoService(req.params.id,req.body));
+        return res.status(200).send(await PedidoService.updateStatusPedidoService(req.params.id));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);

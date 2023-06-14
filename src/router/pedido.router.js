@@ -14,8 +14,8 @@ router.get("/findAll",authMiddleware,pedidoController.findAllPedidosController);
 // metodo Post
 router.post("/create",authMiddleware,pedidoController.createPedidoController);
 
-// Metodo Put
-router.put("/update/:id",authMiddleware,pedidoController.updateStatusPedidoController);
+// Metodo Patch so atualiza uma parte do objeto, o put atualiza o objeto inteiro
+router.patch("/updateStatus/:id",authMiddleware,pedidoController.updateStatusPedidoController);
 
 // Metodo Delete
 router.delete("/delete/:id",authMiddleware,pedidoController.removePedidoController);

@@ -16,8 +16,8 @@ const removePedidoService = (id) => {
     return Pedido.findByIdAndRemove(id);
 }
 
-const updateStatusPedidoService =  (id, body) => {
-    return Pedido.findByIdAndUpdate(id,body,{returnDocument:"after"});
+const updateStatusPedidoService =  (id) => {
+    return Pedido.findByIdAndUpdate({_id:id}, {$set:{concluido:true}});
 }
 
 module.exports = {
