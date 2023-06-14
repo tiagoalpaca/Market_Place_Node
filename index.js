@@ -28,6 +28,8 @@ const produto = require("./src/router/produto.router");
 const categoria = require("./src/router/categoria.router");
 // Importa as rotas da carrinho
 const carrinho = require("./src/router/carrinho.router");
+// Importa as rotas da pedido
+const pedido = require("./src/router/pedido.router");
 
 // Chamando as rotas do usuario,auth e produto
 app.use("/usuario", usuario);
@@ -35,6 +37,7 @@ app.use("/auth", auth);
 app.use("/produto", produto);
 app.use("/categoria", categoria);
 app.use("/carrinho", carrinho);
+app.use("/pedido", pedido);
 
 app.get("/",(req,res)=> {
     res.send({
