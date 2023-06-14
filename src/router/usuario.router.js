@@ -7,7 +7,7 @@ const UsuarioController = require("../controller/usuario.controller");
 
 // importar o middleware para fazer as verificações
 const authMiddleware = require ("../middleware/auth.middleware");
-// importar o middleware para fazer as validações
+// importar o middleware para fazer as validações,normalmente as validações ocorrem no Post e no Put
 const {validaUsuario} = require ("../middleware/validacao.middleware");
 
 // vamos importar o controller, O . ponto serve para algo no seu mesmo nivel, . . vc volta 2 nivel na questão de pastas da arquitetura, como esta dentro da pasta controller precisamos de ..
