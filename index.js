@@ -30,14 +30,17 @@ const categoria = require("./src/router/categoria.router");
 const carrinho = require("./src/router/carrinho.router");
 // Importa as rotas da pedido
 const pedido = require("./src/router/pedido.router");
+// Importa as rotas do docs
+const docs = require("./src/router/docs.router");
 
-// Chamando as rotas do usuario,auth e produto
+// Chamando as rotas do usuario,auth,produto,categoria,pedido e docs
 app.use("/usuario", usuario);
 app.use("/auth", auth);
 app.use("/produto", produto);
 app.use("/categoria", categoria);
 app.use("/carrinho", carrinho);
 app.use("/pedido", pedido);
+app.use("/docs", docs);
 
 app.get("/",(req,res)=> {
     res.send({
@@ -50,3 +53,7 @@ app.listen(port,()=>{
     // acrescentar o http no localhost facilita pois ai ele ja vira um link
     console.log('Servidor rodando em http://localhost:'+port);
 })
+
+// swagger vai vir para complementar a documentação.
+// npm i swagger, agora especifico do projeto npm i swagger-ui-express
+// O arquivo swagger precisa estar com a estrutura de JSON {}, mesmo que vazia para funcionar

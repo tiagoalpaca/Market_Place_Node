@@ -1,0 +1,25 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "API Market Place",
+        "description": "API de Market Place completa contendo o CRUD de diversos assuntos",
+        "contact":{
+            "name": "Tiago",
+            "email": "tiagoalpaca@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers":[
+        {
+            "url": "http://localhost:3000",
+            "description": "API de teste Local"
+        },
+        {
+            "url": "Market na nuvem",
+            "description": "API de teste Local"
+        }    
+    ],
+    "paths":{
+        
+    }
+}
