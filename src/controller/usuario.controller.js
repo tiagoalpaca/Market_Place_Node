@@ -41,12 +41,7 @@ const findAllUsersController = async (req,res)=>{
 // cria a função de criar um usuario
 const createUserController = async (req,res) => {
     try{
-        const body = req.body;
-        if(!body.nome){
-            return res.status(400).send({message:"O campo 'nome' nao foi encontrado"});
-        }
         return res.status(201).send(await userService.createUserService(body));
-
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
     console.log('erro: '+err);
