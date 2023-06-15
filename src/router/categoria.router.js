@@ -8,10 +8,12 @@ const categoriaController = require("../controller/categoria.controller");
 const authMiddleware = require ("../middleware/auth.middleware");
 // importar o middleware para fazer as validações,normalmente as validações ocorrem no Post e no Put
 const {validaCategoria,validaId} = require ("../middleware/validacao.middleware");
+// importar o middleware para fazer a paginacao
+const paginacao = require ("../middleware/paginacao.middleware");
 
 // metodos get
 router.get("/find/:id",authMiddleware,validaId,categoriaController.findCategoriaByIdController);
-router.get("/findAll",authMiddleware,categoriaController.findAllCategoriasController);
+router.get("/findAll",authMiddleware,paginacao,categoriaController.findAllCategoriasController);
 
 // metodo Post
 router.post("/create",authMiddleware,validaCategoria,categoriaController.createCategoriaController);

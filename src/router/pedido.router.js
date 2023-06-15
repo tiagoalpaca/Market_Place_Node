@@ -8,10 +8,12 @@ const pedidoController = require("../controller/pedido.controller");
 const authMiddleware = require ("../middleware/auth.middleware");
 // importar o middleware para fazer as validações,normalmente as validações ocorrem no Post e no Put
 const {validaPedido,validaId} = require ("../middleware/validacao.middleware");
+// importar o middleware para fazer a paginacao
+const paginacao = require ("../middleware/paginacao.middleware");
 
 // metodos get
 router.get("/find/:id",authMiddleware,validaId,pedidoController.findPedidoByIdController);
-router.get("/findAll",authMiddleware,pedidoController.findAllPedidosController);
+router.get("/findAll",authMiddleware,paginacao,pedidoController.findAllPedidosController);
 
 // metodo Post
 router.post("/create",authMiddleware,validaPedido,pedidoController.createPedidoController);

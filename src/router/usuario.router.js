@@ -9,6 +9,8 @@ const UsuarioController = require("../controller/usuario.controller");
 const authMiddleware = require ("../middleware/auth.middleware");
 // importar o middleware para fazer as validações,normalmente as validações ocorrem no Post e no Put
 const {validaUsuario,validaId} = require ("../middleware/validacao.middleware");
+// importar o middleware para fazer a paginacao
+const paginacao = require ("../middleware/paginacao.middleware");
 
 // vamos importar o controller, O . ponto serve para algo no seu mesmo nivel, . . vc volta 2 nivel na questão de pastas da arquitetura, como esta dentro da pasta controller precisamos de ..
 const usuario = require("../controller/usuario.controller");
@@ -19,7 +21,7 @@ const usuario = require("../controller/usuario.controller");
 // Caso não se insira o middleware, a pessoa não precisa do token para fazer a pesquisa
 // Get
 router.get("/findById/:id",authMiddleware,validaId,usuario.findUserByIdController); 
-router.get("/findAll",authMiddleware, usuario.findAllUsersController);
+router.get("/findAll",authMiddleware,paginacao, usuario.findAllUsersController);
 
 // Post
 router.post("/create",validaUsuario, usuario.createUserController);

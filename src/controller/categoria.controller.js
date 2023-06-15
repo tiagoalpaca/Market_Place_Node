@@ -13,7 +13,7 @@ const findCategoriaByIdController = async (req,res)=>{
 
 const findAllCategoriasController = async (req,res)=>{
     try{
-        return res.status(200).send(await categoriaService.findAllCategoriasService());
+        return res.status(200).send(await categoriaService.findAllCategoriasService(req.query.limit, req.query.offset));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);

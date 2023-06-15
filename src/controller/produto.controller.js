@@ -13,7 +13,7 @@ const findProductByIdController = async (req,res)=>{
 
 const findAllProductsController = async (req,res)=>{
     try{
-        return res.status(200).send(await produtoService.findAllProductsService());
+        return res.status(200).send(await produtoService.findAllProductsService(req.query.limit, req.query.offset));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
