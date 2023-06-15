@@ -7,7 +7,7 @@ const carrinhoController = require("../controller/carrinho.controller");
 // importar o middleware para fazer as verificações
 const authMiddleware = require ("../middleware/auth.middleware");
 // importar o middleware para fazer as validações,normalmente as validações ocorrem no Post e no Put
-const {validaCarrinho,validaIdParams} = require ("../middleware/validacao.middleware");
+const {validaCarrinho,validaIdParams,validaProdutosCarrinhoPedido} = require ("../middleware/validacao.middleware");
 // importar o middleware para fazer a paginacao
 const paginacao = require ("../middleware/paginacao.middleware");
 
@@ -16,7 +16,7 @@ router.get("/find/:id",authMiddleware,validaIdParams,carrinhoController.findCarr
 router.get("/findAll",authMiddleware,paginacao,carrinhoController.findAllCarrinhosController);
 
 // metodo Post
-router.post("/create",authMiddleware,validaCarrinho,carrinhoController.createCarrinhoController);
+router.post("/create",authMiddleware,validaProdutosCarrinhoPedido,validaCarrinho,carrinhoController.createCarrinhoController);
 
 // Metodo Put
 router.put("/update/:id",authMiddleware,validaIdParams,validaCarrinho,carrinhoController.updateCarrinhoController);

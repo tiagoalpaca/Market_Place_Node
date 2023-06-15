@@ -185,6 +185,37 @@ const validaLogin = (req,res,next) =>{
     }
 }
 
+const validaProdutosCarrinhoPedido = (req,res,next) =>{
+
+    // vetor para acumular os erros
+    let erros = [];
+
+    req.body.produtos.map((value,key) => {
+        if(!value._id){
+            erros.push( key+1 +" - _id");
+        }
+        if(!ObjectId.isValid(value._id)){
+            erros.push( key+1 +" - _id - tipo invalido");
+        }
+        if(!value.quantidade){
+            erros.push( key+1 +" - quantidade");
+        }
+    });
+
+   
+    if(erros.length == 0){
+         // precisa ter o return next,senao ele fica flutuando e nao faz nada
+     return next();
+
+    }else{
+        if(erros.length > 1){
+            return res.status(400).send({message:"Os campos "+ erros +  " precisam ser preenchidos!!"}); 
+        }else{
+            return res.status(400).send({message:"O campo "+ erros +  " precisa ser preenchido!!"}); 
+        }
+    }
+}
+
 module.exports = {
     validaUsuario,
     validaEndereco,
@@ -194,5 +225,6 @@ module.exports = {
     validaCarrinho,
     validaIdParams,
     valida_IdBody,
-    validaLogin
+    validaLogin,
+    validaProdutosCarrinhoPedido
 }

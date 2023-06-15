@@ -7,7 +7,7 @@ const pedidoController = require("../controller/pedido.controller");
 // importar o middleware para fazer as verificações
 const authMiddleware = require ("../middleware/auth.middleware");
 // importar o middleware para fazer as validações,normalmente as validações ocorrem no Post e no Put
-const {validaPedido,validaIdParams} = require ("../middleware/validacao.middleware");
+const {validaPedido,validaIdParams,validaProdutosCarrinhoPedido} = require ("../middleware/validacao.middleware");
 // importar o middleware para fazer a paginacao
 const paginacao = require ("../middleware/paginacao.middleware");
 
@@ -16,7 +16,7 @@ router.get("/find/:id",authMiddleware,validaIdParams,pedidoController.findPedido
 router.get("/findAll",authMiddleware,paginacao,pedidoController.findAllPedidosController);
 
 // metodo Post
-router.post("/create",authMiddleware,validaPedido,pedidoController.createPedidoController);
+router.post("/create",authMiddleware,validaProdutosCarrinhoPedido,validaPedido,pedidoController.createPedidoController);
 
 // Metodo Patch so atualiza uma parte do objeto, o put atualiza o objeto inteiro
 router.patch("/updateStatus/:id",authMiddleware,validaIdParams,pedidoController.updateStatusPedidoController);
