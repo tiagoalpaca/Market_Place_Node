@@ -1,5 +1,6 @@
-// Precisa validar tudo o que é require no sistema
+const ObjectId = require("mongoose").Types.ObjectId;
 
+// Precisa validar tudo o que é require no sistema
 const validaUsuario = (req,res,next) =>{
     // Nessa função testa um erro por vez e toma uma decisão por vez
     if(!req.body.nome){
@@ -116,10 +117,19 @@ const validaCarrinho = (req,res,next) =>{
       }
 }
 
+const validaId = (req,res,next) =>{
+    if(ObjectId.isValid(req.params.id)){
+        return next();
+    }else{
+        return res.status(400).send({message:"O campo ID não corresponde aos padroes necessarios"}); 
+    }
+}
+
 module.exports = {
     validaUsuario,
     validaProduto,
     validaCategoria,
     validaPedido,
-    validaCarrinho
+    validaCarrinho,
+    validaId
 }
