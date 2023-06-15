@@ -7,11 +7,26 @@ const app = express();
 const jwt = require("jsonwebtoken");
 // vai chamar o dotenv antes de qualquer arquivo que precise dele
 require("dotenv").config();
+// Importando o cors
+const cors = require("cors");
+
 // Porta vai ser a 3000
 const port = 3000;
 
 // api rest 
 app.use(express.json());
+// o cors sem parametro fica uma tudo aberto, por isso é necessario passar as restrições de segurança
+app.use(express.cors(
+    {
+        // limita as origens que  tem acesso, pode ser um array
+        origin:[
+            "localhost:3001",
+            "localhost:3002"
+        ],
+        // limita os metodos que tem acesso
+        methods: ["GET","POST","PUT","DELETE","PATCH"]
+    }
+));
 
 const mongoose = require('mongoose');
 // importar a função para conecter database
@@ -57,3 +72,5 @@ app.listen(port,()=>{
 // swagger vai vir para complementar a documentação.
 // npm i swagger, agora especifico do projeto npm i swagger-ui-express
 // O arquivo swagger precisa estar com a estrutura de JSON {}, mesmo que vazia para funcionar
+
+// Instalar o cors, npm i cors
