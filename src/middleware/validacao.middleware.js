@@ -146,8 +146,16 @@ const validaCarrinho = (req,res,next) =>{
       }
 }
 
-const validaId = (req,res,next) =>{
+const validaIdParams = (req,res,next) =>{
     if(ObjectId.isValid(req.params.id)){
+        return next();
+    }else{
+        return res.status(400).send({message:"O campo ID não corresponde aos padroes necessarios"}); 
+    }
+}
+
+const valida_IdBody = (req,res,next) =>{
+    if(ObjectId.isValid(req.body._id)){
         return next();
     }else{
         return res.status(400).send({message:"O campo ID não corresponde aos padroes necessarios"}); 
@@ -184,6 +192,7 @@ module.exports = {
     validaCategoria,
     validaPedido,
     validaCarrinho,
-    validaId,
+    validaIdParams,
+    valida_IdBody,
     validaLogin
 }
