@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "environmentName": "market-Place",
-    "dateExported": "2023-06-14T13:46:02.131Z",
+    "dateExported": "2023-06-15T17:41:18.520Z",
     "version": "1.0",
     "variables": [
         {
@@ -14,7 +14,7 @@
         },
         {
             "name": "token",
-            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODY0ZWQwNmUzMGZhYzU4MDE1OGRkOSIsImlhdCI6MTY4NjY4NzUyNn0.ySkeZQQ7n35118jVlcn003ioaLCZi484bMS11FcbvYY"
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODY0ZWQwNmUzMGZhYzU4MDE1OGRkOSIsImlhdCI6MTY4Njg0MDE2OX0.cUd_RMynUVAKD9LuGvWKCL4hFVaGieX-31GlYpZwBlM"
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Market Place",
-    "dateExported": "2023-06-14T13:43:43.174Z",
+    "dateExported": "2023-06-15T17:41:07.784Z",
     "version": "1.1",
     "folders": [
         {
@@ -53,13 +53,19 @@
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "2efba0be-b9dd-4630-9a4d-767ee13b4533",
             "name": "FindAll",
-            "url": "{{BaseURL}}{{Port}}/usuario/FindAll",
+            "url": "{{BaseURL}}{{Port}}/usuario/FindAll?offset",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-06-08T01:25:38.729Z",
-            "modified": "2023-06-12T14:36:17.280Z",
+            "modified": "2023-06-15T15:31:14.326Z",
             "headers": [],
-            "params": [],
+            "params": [
+                {
+                    "name": "offset",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
             "auth": {
                 "type": "bearer",
                 "bearer": "{{token}}"
@@ -71,11 +77,11 @@
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "2efba0be-b9dd-4630-9a4d-767ee13b4533",
             "name": "FindById",
-            "url": "{{BaseURL}}{{Port}}/usuario/findById/64864ed06e30fac580158dd9",
+            "url": "{{BaseURL}}{{Port}}/usuario/findById/64864ed06e30fac580158dd2",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-06-08T01:26:53.537Z",
-            "modified": "2023-06-12T14:49:45.150Z",
+            "modified": "2023-06-15T14:34:00.026Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -93,12 +99,12 @@
             "method": "POST",
             "sortNum": 40000,
             "created": "2023-06-08T01:34:57.265Z",
-            "modified": "2023-06-12T15:34:32.463Z",
+            "modified": "2023-06-14T14:02:22.572Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\": \"ale\",\n  \"email\": \"ale@gmail.com\",\n  \"senha\": \"Senhaale\",\n  \"imagem\": \"Img.ale.jpg\"\n}",
+                "raw": "{\n  \"nome\": \"ronaldo\",\n  \"email\": \"ronaldo@gmail.com\",\n  \"senha\": \"SenhaRonaldo\",\n  \"imagem\": \"Img.Ronaldo.jpg\"\n}",
                 "form": []
             },
             "tests": []
@@ -122,17 +128,21 @@
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "2efba0be-b9dd-4630-9a4d-767ee13b4533",
             "name": "Add Adress",
-            "url": "{{BaseURL}}{{Port}}/usuario/addAddress/64873af403bb9be4fbc5e9bc",
+            "url": "{{BaseURL}}{{Port}}/usuario/addAddress/6489c876e2ad2cb8b384fc8d",
             "method": "POST",
             "sortNum": 70000,
             "created": "2023-06-08T03:39:36.999Z",
-            "modified": "2023-06-12T15:35:45.358Z",
+            "modified": "2023-06-15T15:45:37.201Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"rua\":\"Alameda 2\",\n  \"numero\":88,\n  \"cep\":\"4509\"\n}",
+                "raw": "[{\n  \n},\n{\n  \"rua\":\"Rua nova 2.0 \",\n  \"numero\":26988\n  \n}\n]",
                 "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
             },
             "tests": []
         },
@@ -183,7 +193,7 @@
             "method": "POST",
             "sortNum": 110000,
             "created": "2023-06-11T23:13:00.000Z",
-            "modified": "2023-06-11T23:14:16.885Z",
+            "modified": "2023-06-15T14:42:49.769Z",
             "headers": [],
             "params": [],
             "body": {
@@ -198,13 +208,24 @@
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "fa0ae8f6-29e1-4ea9-bf12-f93fb91547c2",
             "name": "FindAll",
-            "url": "{{BaseURL}}{{Port}}/produto/findAll",
+            "url": "{{BaseURL}}{{Port}}/produto/findAll?limit=10&offset=0",
             "method": "GET",
             "sortNum": 120000,
             "created": "2023-06-12T18:47:56.281Z",
-            "modified": "2023-06-12T18:49:10.167Z",
+            "modified": "2023-06-15T15:54:26.318Z",
             "headers": [],
-            "params": [],
+            "params": [
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "offset",
+                    "value": "0",
+                    "isPath": false
+                }
+            ],
             "auth": {
                 "type": "bearer",
                 "bearer": "{{token}}"
@@ -238,12 +259,12 @@
             "method": "POST",
             "sortNum": 140000,
             "created": "2023-06-12T18:51:54.404Z",
-            "modified": "2023-06-12T20:25:03.534Z",
+            "modified": "2023-06-14T21:22:44.647Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\":\"produto 2\",\n  \"descricao\":\"produto sas\",\n  \"precoUnitario\":2.5,\n  \"imagem\":\"img.produto2.jpg\",\n  \"codigoBarra\":123456\n}",
+                "raw": "{\n  \"nome\":\"produto 22\",\n  \"descricao\":\"produto amarelao\",\n  \"precoUnitario\":1244,\n  \"imagem\":\"img.produto22.jpg\",\n  \"codigoBarra\":123\n}",
                 "form": []
             },
             "auth": {
@@ -398,11 +419,11 @@
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "fa0ae8f6-29e1-4ea9-bf12-f93fb91547c2",
             "name": "AddCategoria",
-            "url": "{{BaseURL}}{{Port}}/produto/addCategoria/64876ad3cc0386b3132f1f0d",
+            "url": "{{BaseURL}}{{Port}}/produto/addCategoria/64877f1f4d747f258e4b85644",
             "method": "POST",
             "sortNum": 230000,
             "created": "2023-06-12T20:21:06.868Z",
-            "modified": "2023-06-12T20:30:14.073Z",
+            "modified": "2023-06-15T16:09:05.555Z",
             "headers": [],
             "params": [],
             "body": {
@@ -484,12 +505,12 @@
             "method": "POST",
             "sortNum": 285000,
             "created": "2023-06-13T20:17:10.060Z",
-            "modified": "2023-06-13T20:36:56.644Z",
+            "modified": "2023-06-15T16:19:16.367Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"produtos\":[\n      {\"_id\":\"64876ad3cc0386b3132f1f0d\",\"quantidade\":2},\n      {\"_id\":\"64877f1f4d747f258e4b8564\",\"quantidade\":5}\n    ],\n    \"precoTotal\":390.53,\n    \"frete\":22.3\n}",
+                "raw": "{\n  \"produtos\":[\n      {\"quantidade\":222},\n      {\"_id\":\"64877f1f4d747f258e4b8564\"}\n    ],\n    \"precoTotal\":0.53,\n    \"frete\":2.3\n}",
                 "form": []
             },
             "auth": {
@@ -544,11 +565,11 @@
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "2efba0be-b9dd-4630-9a4d-767ee13b4533",
             "name": "AddFavProduct",
-            "url": "{{BaseURL}}{{Port}}/usuario/addFavProduct/64864ea46e30fac580158dd7",
+            "url": "{{BaseURL}}{{Port}}/usuario/addFavProduct/64864ea46e30fac580158dd8",
             "method": "POST",
             "sortNum": 310000,
             "created": "2023-06-13T20:50:20.406Z",
-            "modified": "2023-06-13T21:00:13.781Z",
+            "modified": "2023-06-15T16:08:36.089Z",
             "headers": [],
             "params": [],
             "body": {
@@ -630,12 +651,12 @@
             "method": "POST",
             "sortNum": 360000,
             "created": "2023-06-14T13:25:18.201Z",
-            "modified": "2023-06-14T13:40:22.581Z",
+            "modified": "2023-06-14T21:48:01.518Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"produtos\":[\n      {\"_id\":\"64876ad3cc0386b3132f1f0d\",\"quantidade\":23},\n      {\"_id\":\"64877f1f4d747f258e4b8564\",\"quantidade\":11}\n    ],\n    \"precoTotal\":251.53,\n    \"frete\":12.3,\n    \"concluido\": false\n}",
+                "raw": "{\n  \"produtos\":[\n      {\"_id\":\"64876ad3cc0386b3132f1f0d\",\"quantidade\":323},\n      {\"_id\":\"64877f1f4d747f258e4b8564\",\"quantidade\":311}\n    ],\n    \"precoTotal\":2351.53,\n    \"frete\":2312.3,\n    \"concluido\": true\n}",
                 "form": []
             },
             "auth": {
