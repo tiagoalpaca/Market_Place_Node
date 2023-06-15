@@ -16,7 +16,7 @@ const UsuarioSchema = new mongoose.Schema({
             rua:{ type:String, required:true},
             numero:{ type:String, required:true},
             complemento:{ type:String, required:false},
-            Cep:{ type:String, required:true},
+            CEP:{ type:String, required:true},
             // quando foi criado o endereço
             createdAt:{ type:Date, required:true,default: Date.now()},
         }
