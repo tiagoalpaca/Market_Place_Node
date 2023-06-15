@@ -16,7 +16,7 @@ const port = 3000;
 // api rest 
 app.use(express.json());
 // o cors sem parametro fica uma tudo aberto, por isso é necessario passar as restrições de segurança
-app.use(express.cors(
+app.use(cors(
     {
         // limita as origens que  tem acesso, pode ser um array
         origin:[
